@@ -1,0 +1,143 @@
+#2(a)
+
+# Python Program to Print Floyd's Triangle
+rows = int(input("Please Enter the total Number of Rows : "))
+number = 1
+
+print("Floyd's Triangle")
+for i in range(1, rows + 1):
+  for j in range(1, i + 1):
+    print(number, end = ' ')
+    number = number + 1
+  print()
+  
+#2(b)
+ 
+no_heaps = int(input("Enter no of pubble heaps"))
+heaps = no_heaps
+if(no_heaps % 2 == 0):
+  while(no_heaps > 0):
+    print(heaps)
+    heaps = heaps + 2
+    no_heaps = no_heaps - 1
+else:
+  while(no_heaps > 0):
+    print(heaps)
+    heaps = heaps + 2
+    no_heaps = no_heaps - 1
+  
+
+
+str = input("Input a string")
+digits = 0
+upper = 0
+lower = 0
+for char in str:
+  if char.isdigit():
+    digits = digits + 1
+  elif char.isupper():
+    upper = upper + 1
+  elif char.islower():
+    lower = lower + 1
+  else:
+    pass
+print("Digits : ",digits)
+print("Lower case letters : ", lower)
+print("Upper case letters : ",upper)
+
+#3(a)
+def remove_duplicates(str1):
+    str2 = ''
+    for i in str1:
+        if i not in str2:
+            str2 = str2 + i
+    return(str2)
+print(remove_duplicates('python programming'))
+
+#3(b)
+def mult_lists(a, b, n):
+    lst = []
+    for i in range(0,n):
+        lst.append(a[i]*b[i])
+    return sum(lst)
+while(True):
+    n = int(input('enter number of elements in lst1'))
+    m = int(input('enter number of elements in lst2'))
+    if(n != m):
+        print('list1 and list2 should have same elements')
+    else:
+        break
+
+lst1 = []
+lst2 = []
+
+print('enter elements in list1')
+for i in range(0,n):
+    z = int(input())
+    lst1.append(z)
+print('enter elements in list2')
+for i in range(0,n):
+    k = int(input())
+    lst2.append(k)
+
+print('the sum of corresponding elements is',mult_lists(lst1, lst2,n))
+
+#3(c)
+my_list = [[1], [2, 3], [4, 5, 6, 7]]
+
+flat_list = []
+for sublist in my_list:
+    for num in sublist:
+        flat_list.append(num)
+
+print(flat_list)
+
+
+#5
+import math
+class QuadraticEquation:
+ def __init__(self,a,b,c):
+  self.__a = a
+  self.__b = b
+  self.__c = c
+ def getA(self):
+  return self.__a
+ def getB(self):
+  return self.__b
+ def getC(self):
+  return self.__c
+ def getDiscriminant(self):
+  return (self.__b**2) - (4 * self.__a * self.__c)
+ def getRoot1(self):
+  if self.getDiscriminant()<0:
+   return 0
+  else:
+   D = self.getDiscriminant()
+   B = self.getB()
+   return (-B + math.sqrt(D))/(2*self.__a)
+ def getRoot2(self):
+  if self.getDiscriminant()<0:
+   return 0
+  else:
+   D = self.getDiscriminant()
+   B = self.getB()
+   return (-B - math.sqrt(D))/(2*self.__a)
+
+#Driver Code
+a = int(input("Enter a:\t"))
+b = int(input("Enter b:\t"))
+c = int(input("Enter c:\t"))
+obj = QuadraticEquation(a,b,c)
+print("Get a:\t",obj.getA())
+print("Get b:\t",obj.getB())
+print("Get c:\t",obj.getC())
+D = obj.getDiscriminant()
+if D > 0:
+ print("real and unequal roots")
+ print("Root1 :\t",obj.getRoot1())
+ print("Root1 :\t",obj.getRoot2())
+elif D == 0:
+ print("real and equal roots")
+ print("Root :\t",obj.getRoot1())
+else:
+ print("Complex Roots")
